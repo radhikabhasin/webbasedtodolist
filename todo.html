@@ -1,0 +1,52 @@
+<div id="listViewContainer">
+  <div class='oj-flex-bar'>
+    <div class='oj-flex-bar-start'>
+      <label for="inputItem" class="oj-label-inline">Add/Edit/Delete To-do list:</label>
+    </div>
+    <div class='oj-flex-bar-middle'>
+      <input id="inputItem" data-bind="ojComponent: {component: 'ojInputText', value:itemToAdd}">
+      </input>
+    </div>
+  </div>
+
+  <button id= "addButton" data-bind="click: addItem, ojComponent: { component: 'ojButton', label: 'Add' }">
+  </button>
+  <button id= "updateButton" data-bind="click: updateSelected, ojComponent: { component: 'ojButton', label: 'Edit' }">
+  </button>
+ <button id= "removeButton" data-bind="click: removeSelected, ojComponent: { component: 'ojButton', label: 'Delete', rootAttributes: {style: 'margin-top: 3px'} }">
+    </button>
+
+
+<button id="buttonImageUp" 
+          data-bind="click: buttonUpClick,ojComponent: {
+          component:'ojButton', 
+          display: 'icons', 
+          icons: {start:'oj-fwk-icon-caret-n oj-fwk-icon'}, 
+          label: 'move up'}">
+</button>
+
+<button id="buttonImageDown" 
+          data-bind= "click: buttonDownClick,
+          ojComponent: {
+          component:'ojButton', 
+          display: 'icons', 
+          icons: {start:'oj-fwk-icon-caret-s oj-fwk-icon'}, 
+          label: 'move down'}"></button>
+
+    <ul id="listview" aria-label="Todo List" 
+        data-bind="ojComponent: {
+            component: 'ojListView', 
+            data: dataSource, 
+            selectionMode: 'single',
+            selection: selectedItems,
+            item: 
+            {
+                renderer: function(context)
+                {
+                    return context['data']['item'];
+                }
+            }
+        }">
+    </ul>
+ 
+</div>
